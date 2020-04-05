@@ -9,6 +9,8 @@
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 
+        <link rel="icon" type="image/png" href="{{url('/images/logo.png')}}">
+
         <!-- Styles -->
         <style>
             html, body {
@@ -82,6 +84,7 @@
             <div class="content">
                 <div class="title m-b-md">
                     Freestyle
+                    <img src="{{url('/images/logo.png')}}" width="70px">
                 </div>
             </div>
         </div>

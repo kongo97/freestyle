@@ -86,6 +86,14 @@
                     Freestyle
                     <img src="{{url('/images/logo.png')}}" width="70px">
                 </div>
+
+                <div class="links">
+                    <a href="/ide">IDE</a>
+                    <a href="/freestyle">Freestyle</a>
+                    <a href="/dissing">Dissing</a>
+                    <a href="/news">News</a>
+                    <a target="_blank" href="https://github.com/kongo97/freestyle">GitHub</a>
+                </div>
             </div>
         </div>
     </body>

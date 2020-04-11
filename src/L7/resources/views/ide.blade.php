@@ -25,6 +25,7 @@
                 font-weight: 200;
                 height: 100vh;
                 margin: 0;
+                max-width: 100%;
             }
 
             .full-height {
@@ -70,10 +71,36 @@
             }
 
             /** temp css */
+            #ide-nav
+            {
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                height: 30px;
+                background-color: #fefefe;
+            }
+
+            #ide-nav ul
+            {
+                line-height: 1px;
+            }
+
+            #ide-nav li
+            {
+                list-style-type: none;
+                float: left;
+                width: auto;
+                margin: auto;
+                padding-left: 10px;
+                padding-right: 10px;
+                font-weight: 400;
+            }
+
             #ide-text-hidden
             {
                 position: absolute;
-                top: 0;
+                top: 30px;
                 bottom: 0;
                 left: 0;
                 right: 0;
@@ -99,9 +126,9 @@
                 color: #fff;
                 font-family: 'Nunito', sans-serif;
                 font-weight: 400;
-                padding: 25px;
                 font-size: 20px;
                 padding: 25px;
+                margin-top: 70px;
             }
 
             #word-helper
@@ -156,6 +183,19 @@
                     @endauth
                 </div>
             @endif
+
+            <div id="ide-nav">
+                <ul>
+                    <li>File</li>
+                    <li>Edit</li>
+                    <li>Selection</li>
+                    <li>View</li>
+                    <li>Go</li>
+                    <li>Run</li>
+                    <li>Terminal</li>
+                    <li>Helper</li>
+                </ul>
+            </div>
 
             <div id="ide-text-hidden" contenteditable="true"></div>
             <div id="ide-text"></div>

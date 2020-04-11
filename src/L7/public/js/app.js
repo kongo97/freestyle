@@ -1,15 +1,20 @@
+// initialize last key pressed
 var key_pressed = null;
+
+// initialize helper index
 var helper_index = 0;
 
 $(document).ready(function()
 {
     $("#ide-text-hidden").on('keyup', function(e)
     {
+        // if key pressed id ' '
         if(e.key == ' ')
         {
             // hide helper
-            $("#word-helper").removeClass("visible");
+            hideHelper();
         }
+        // key down
         else if(e.keyCode == '40')
         {
             if(key_pressed.keyCode == '40' || key_pressed.keyCode == '38')
@@ -17,10 +22,9 @@ $(document).ready(function()
                 helper_index++;
             }
 
-            $(".word").removeClass("selected");
-
-            $($(".word")[helper_index]).addClass('selected');
+            chooseWord(helper_index);
         }
+        // key up
         else if(e.keyCode == '38')
         {
             if(key_pressed.keyCode == '40' || key_pressed.keyCode == '38')
@@ -28,9 +32,7 @@ $(document).ready(function()
                 helper_index--;
             }
 
-            $(".word").removeClass("selected");
-
-            $($(".word")[helper_index]).addClass('selected');
+            chooseWord(helper_index);
         }
         else
         {
@@ -38,15 +40,13 @@ $(document).ready(function()
             var words = ideText();
 
             // replace simple text with html text
-            $("#ide-text").html(words.words);
+            textToHtml(words);
 
             // fill helper
             fillHelper(words.count);
 
             // show helper
-            $("#word-helper").css("top", document.getElementById(words.count).offsetTop + 25);
-            $("#word-helper").css("left", document.getElementById(words.count).offsetLeft);
-            $("#word-helper").addClass("visible");
+            showHelper(words);
         }
 
         // save key pressed
@@ -118,4 +118,32 @@ function fillHelper(word)
             );
         }     
     })
+}
+
+// hide helper
+function hideHelper()
+{
+    $("#word-helper").removeClass("visible");
+}
+
+// choose word
+function chooseWord(index)
+{
+    $(".word").removeClass("selected");
+
+    $($(".word")[index]).addClass('selected');
+}
+
+// show helper
+function showHelper(words)
+{
+    $("#word-helper").css("top", document.getElementById(words.count).offsetTop + 25);
+    $("#word-helper").css("left", document.getElementById(words.count).offsetLeft);
+    $("#word-helper").addClass("visible");
+}
+
+// transform text to html
+function textToHtml(words)
+{
+    $("#ide-text").html(words.words);
 }

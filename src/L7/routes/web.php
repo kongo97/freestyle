@@ -19,7 +19,7 @@ Route::get('/', function () {
 
 /** ide */
 Route::get('/ide', function () {
-    return view('welcome');
+    return view('ide');
 });
 
 /** freestyle */

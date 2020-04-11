@@ -1,9 +1,38 @@
+var key_pressed = null;
+var helper_index = 0;
+
 $(document).ready(function()
 {
     $("#ide-text-hidden").on('keyup', function(e)
     {
-        // check if char != space (' ')
-        if(e.key != ' ')
+        if(e.key == ' ')
+        {
+            // hide helper
+            $("#word-helper").removeClass("visible");
+        }
+        else if(e.keyCode == '40')
+        {
+            if(key_pressed.keyCode == '40' || key_pressed.keyCode == '38')
+            {
+                helper_index++;
+            }
+
+            $(".word").removeClass("selected");
+
+            $($(".word")[helper_index]).addClass('selected');
+        }
+        else if(e.keyCode == '38')
+        {
+            if(key_pressed.keyCode == '40' || key_pressed.keyCode == '38')
+            {
+                helper_index--;
+            }
+
+            $(".word").removeClass("selected");
+
+            $($(".word")[helper_index]).addClass('selected');
+        }
+        else
         {
             // get all words
             var words = ideText();
@@ -19,11 +48,9 @@ $(document).ready(function()
             $("#word-helper").css("left", document.getElementById(words.count).offsetLeft);
             $("#word-helper").addClass("visible");
         }
-        else
-        {
-            // hide helper
-            $("#word-helper").removeClass("visible");
-        }
+
+        // save key pressed
+        key_pressed = e;
     });
 })
 

@@ -157,6 +157,11 @@
                 background-color: #062f4a;
             }
 
+            .word.selected
+            {
+                background-color: #062f4a;
+            }
+
             .visible
             {
                 display: block !important;
